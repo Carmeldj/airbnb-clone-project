@@ -158,7 +158,7 @@ Provides advanced search and filtering options based on location, price, dates, 
 
 An internal tool for managing users, properties, bookings, and reported issues. It ensures smooth platform operation, supports moderation, and provides insights into usage metrics.
 
-## API Secutity
+## API Security
 Here are the **key security measures** that will be implemented, along with why each is essential for a booking platform:
 
 ---
