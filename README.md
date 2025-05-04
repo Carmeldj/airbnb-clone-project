@@ -113,3 +113,48 @@ Tracks payment transactions for bookings.
 
 * A **payment belongs to** one **booking**.
 * A **payment is indirectly tied to** one **user** (via booking).
+## Feature Breakdown
+Here’s a list of the **main features** typically found in a booking platform, with short descriptions of how each contributes to the overall functionality:
+
+---
+
+### 1. **User Management**
+
+Allows users to register, log in, update their profiles, and manage their roles (e.g., guest or host). This feature ensures secure access and personalizes the user experience across the platform.
+
+---
+
+### 2. **Property Management**
+
+Enables hosts to create, edit, and delete property listings with details like photos, descriptions, pricing, and availability. This feature allows property owners to effectively present their offerings to potential guests.
+
+---
+
+### 3. **Booking System**
+
+Lets users view availability and make reservations for specific properties. It handles date validation, overlapping checks, and ensures both guests and hosts have a smooth reservation experience.
+
+---
+
+### 4. **Review & Rating System**
+
+Allows guests to leave feedback and rate their stay at a property. This builds trust in the platform and helps other users make informed booking decisions.
+
+---
+
+### 5. **Payment Integration**
+
+Facilitates secure transactions between guests and the platform or hosts, including payment processing, confirmation, and refund handling. It’s a critical feature that supports the platform’s monetization and credibility.
+
+---
+
+### 6. **Search and Filter**
+
+Provides advanced search and filtering options based on location, price, dates, and amenities. This improves discoverability and helps users find relevant properties quickly.
+
+---
+
+### 7. **Admin Dashboard**
+
+An internal tool for managing users, properties, bookings, and reported issues. It ensures smooth platform operation, supports moderation, and provides insights into usage metrics.
+
