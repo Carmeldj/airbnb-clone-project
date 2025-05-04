@@ -216,4 +216,29 @@ Sensitive data such as passwords (hashed with bcrypt or Argon2), payment tokens,
 Key actions (e.g., login attempts, data edits, payments) will be logged and monitored to detect unusual or suspicious behavior.
 
 **Why it matters**: Helps quickly detect and respond to breaches, fraud, or misuse of the system.
+## CI/CD Pipeline
+### 🚀 What Are CI/CD Pipelines?
+
+**CI/CD** stands for **Continuous Integration** and **Continuous Deployment/Delivery**.
+CI/CD pipelines automate the process of building, testing, and deploying code every time changes are pushed to the repository. This ensures that new features, bug fixes, or updates are delivered quickly, reliably, and safely.
+
+---
+
+### 🔧 Why CI/CD Is Important for This Project
+
+For a booking platform where reliability and uptime are critical, CI/CD helps:
+
+* Catch bugs early through **automated testing** before they reach production
+* **Deploy updates frequently** without manual errors
+* Maintain **code quality and consistency**
+* Enable **fast feedback loops**, especially in collaborative teams
+
+---
+
+### 🛠️ Recommended Tools
+
+* **GitHub Actions** – for automating testing, linting, and deployment workflows directly from your GitHub repo
+* **Docker** – for containerizing the application to ensure consistent environments across development, testing, and production
+* **DigitalOcean / AWS / Render** – for deploying backend services or APIs
+* **PostgreSQL / Redis / Stripe Test Mode** – for setting up integration tests with real-like services
 
