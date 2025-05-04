@@ -158,3 +158,62 @@ Provides advanced search and filtering options based on location, price, dates, 
 
 An internal tool for managing users, properties, bookings, and reported issues. It ensures smooth platform operation, supports moderation, and provides insights into usage metrics.
 
+## API Secutity
+Here are the **key security measures** that will be implemented, along with why each is essential for a booking platform:
+
+---
+
+### 1. **Authentication**
+
+Ensures that only legitimate users can access their accounts using secure login mechanisms such as email/password (with hashing), OAuth, or multi-factor authentication (MFA).
+
+ **Why it matters**: Prevents unauthorized access to personal data, bookings, and payment information. It protects both guests and hosts from account hijacking.
+
+---
+
+### 2. **Authorization**
+
+Controls what authenticated users are allowed to do — for example, only hosts can edit their own properties, and guests can only manage their own bookings.
+
+ **Why it matters**: Prevents privilege escalation, data leaks, and misuse by ensuring users cannot access or modify resources they don’t own.
+
+---
+
+### 3. **Input Validation & Sanitization**
+
+All user input will be validated and sanitized to prevent attacks like SQL Injection, XSS (Cross-Site Scripting), and command injection.
+
+ **Why it matters**: Blocks attackers from injecting malicious code or accessing backend systems through forms or query parameters.
+
+---
+
+### 4. **Rate Limiting & Brute-force Protection**
+
+Limits the number of requests per user/IP per minute, especially on login and registration endpoints.
+
+ **Why it matters**: Prevents brute-force attacks on passwords and denial-of-service attempts that could slow down or crash the platform.
+
+---
+
+### 5. **Secure Payment Handling**
+
+All payments will be processed through trusted third-party providers (like Stripe or PayPal) over HTTPS with tokenization and encryption.
+
+ **Why it matters**: Ensures compliance with PCI standards, protects financial data, and reduces the risk of fraud or chargebacks.
+
+---
+
+### 6. **Data Encryption**
+
+Sensitive data such as passwords (hashed with bcrypt or Argon2), payment tokens, and personal information will be stored encrypted. HTTPS will be enforced site-wide.
+
+ **Why it matters**: Protects user data both at rest and in transit from being intercepted, stolen, or tampered with.
+
+---
+
+### 7. **Audit Logging & Monitoring**
+
+Key actions (e.g., login attempts, data edits, payments) will be logged and monitored to detect unusual or suspicious behavior.
+
+**Why it matters**: Helps quickly detect and respond to breaches, fraud, or misuse of the system.
+
