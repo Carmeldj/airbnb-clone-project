@@ -16,118 +16,100 @@ A software developer does the actual job and codes an application. And just like
 - DevOps engineer
 Even in Agile environments, development and operations teams can be siloed. DevOps engineers serve as a link between the two teams, unifying and automating the software delivery process and helping strike a balance between introducing changes quickly and keeping an application stable. Working together with software developers, system administrators, and operational staff, DevOps engineers oversee and facilitate code releases on a CI/CD basis.
 ## Database Design
-### Entities
-1. User
+
+### 1. **User**
+
 Represents a person who uses the platform — either a guest or a property owner.
 
-Key Fields:
+**Key Fields:**
 
-id: unique identifier
+* `id`: unique identifier
+* `name`: full name
+* `email`: contact email
+* `role`: `'guest' | 'host'` (or both)
+* `created_at`: account creation date
 
-name: full name
+**Relationships:**
 
-email: contact email
+* A **user can own** multiple **properties**.
+* A **user can make** multiple **bookings**.
+* A **user can leave** multiple **reviews**.
+* A **user can make** **payments**.
 
-role: 'guest' | 'host' (or both)
+---
 
-created_at: account creation date
+### 2. **Property**
 
-Relationships:
-
-A user can own multiple properties.
-
-A user can make multiple bookings.
-
-A user can leave multiple reviews.
-
-A user can make payments.
-
-2. Property
 Represents a place that can be booked (e.g., apartment, hotel room, house).
 
-Key Fields:
+**Key Fields:**
 
-id: unique identifier
+* `id`: unique identifier
+* `title`: name or title of the property
+* `location`: address or geolocation data
+* `description`: details about the property
+* `owner_id`: references the `User` who owns it
 
-title: name or title of the property
+**Relationships:**
 
-location: address or geolocation data
+* A **property belongs to** one **user (host)**.
+* A **property can have** multiple **bookings**.
+* A **property can have** multiple **reviews**.
 
-description: details about the property
+---
 
-owner_id: references the User who owns it
+### 3. **Booking**
 
-Relationships:
-
-A property belongs to one user (host).
-
-A property can have multiple bookings.
-
-A property can have multiple reviews.
-
-3. Booking
 Represents a reservation made by a user for a specific property.
 
-Key Fields:
+**Key Fields:**
 
-id: unique identifier
+* `id`: unique identifier
+* `property_id`: the `Property` being booked
+* `user_id`: the `User` who made the booking
+* `start_date`: booking start
+* `end_date`: booking end
 
-property_id: the Property being booked
+**Relationships:**
 
-user_id: the User who made the booking
+* A **booking belongs to** one **user (guest)**.
+* A **booking belongs to** one **property**.
+* A **booking has one** **payment**.
 
-start_date: booking start
+---
 
-end_date: booking end
+### 4. **Review**
 
-Relationships:
-
-A booking belongs to one user (guest).
-
-A booking belongs to one property.
-
-A booking has one payment.
-
-4. Review
 Represents feedback left by a user about a property.
 
-Key Fields:
+**Key Fields:**
 
-id: unique identifier
+* `id`: unique identifier
+* `property_id`: the reviewed property
+* `user_id`: who left the review
+* `rating`: score (e.g., 1 to 5)
+* `comment`: optional text feedback
 
-property_id: the reviewed property
+**Relationships:**
 
-user_id: who left the review
+* A **review belongs to** one **user**.
+* A **review belongs to** one **property**.
 
-rating: score (e.g., 1 to 5)
+---
 
-comment: optional text feedback
+### 5. **Payment**
 
-Relationships:
-
-A review belongs to one user.
-
-A review belongs to one property.
-
-5. Payment
 Tracks payment transactions for bookings.
 
-Key Fields:
+**Key Fields:**
 
-id: unique identifier
+* `id`: unique identifier
+* `booking_id`: references the related booking
+* `amount`: total paid
+* `status`: `'pending' | 'completed' | 'failed'`
+* `paid_at`: timestamp
 
-booking_id: references the related booking
+**Relationships:**
 
-amount: total paid
-
-status: 'pending' | 'completed' | 'failed'
-
-paid_at: timestamp
-
-Relationships:
-
-A payment belongs to one booking.
-
-A payment is indirectly tied to one user (via booking).
-
-
+* A **payment belongs to** one **booking**.
+* A **payment is indirectly tied to** one **user** (via booking).
